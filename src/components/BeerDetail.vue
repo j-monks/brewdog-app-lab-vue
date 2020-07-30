@@ -1,8 +1,12 @@
 <template>
   <div v-if="beer">
       <h2>{{beer.name}}</h2>
-        <p>Description: {{beer.description}}</p>
-        <p>abv: {{beer.abv}}</p>
+      <h4>Description:</h4>
+      <div>{{beer.description}}</div>
+        <h4>ABV:</h4>
+        <div>{{beer.abv}}</div>
+        <h4>Ingredients:</h4>
+        <div v-for="(ingredient, key, index) in beer.ingredients">{{ key }}</div>
         <button @click="handleClick()">Add To Favourites!</button>
   </div>
 </template>

@@ -25,10 +25,18 @@ export default {
       "favourites-list": FavouritesList
     },
   mounted() {
-      fetch("https://api.punkapi.com/v2/beers")
+    
+    Promise.all([
+      fetch("https://api.punkapi.com/v2/beers?page=1&per_page=80")
         .then(result => result.json())
         .then(beerData => {beerData.forEach((beer) => {beer.isFavourite = false});
-         this.beers = beerData;})
+         this.beers = beerData;}),
+      fetch("https://api.punkapi.com/v2/beers?page=2&per_page=80")
+        .then(result => result.json())
+        .then(beerData => {beerData.forEach((beer) => {beer.isFavourite = false});
+         this.beers = this.beers.concat(beerData);})
+    ])
+    
 
         eventBus.$on("beer-selected", (beer) => {
           this.selectedBeer = beer;
