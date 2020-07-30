@@ -25,7 +25,8 @@ export default {
   mounted() {
       fetch("https://api.punkapi.com/v2/beers")
         .then(result => result.json())
-        .then(beers => this.beers = beers)
+        .then(beerData => {beerData.forEach((beer) => {beer.isFavourite = false});
+         this.beers = beerData;})
 
         eventBus.$on("beer-selected", (beer) => {
           this.selectedBeer = beer;
