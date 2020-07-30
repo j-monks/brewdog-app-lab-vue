@@ -1,6 +1,8 @@
 <template>
   <div>
-      <list-item v-for="(beer, index) in beers" :beer="beer" :key="index"></list-item>
+      <ul>
+        <list-item v-for="(beer, index) in beers" :beer="beer" :key="index"></list-item>
+      </ul>
   </div>
 </template>
 
