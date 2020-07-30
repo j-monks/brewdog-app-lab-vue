@@ -1,8 +1,8 @@
 <template>
   <div>
       <h2>{{beer.name}}</h2>
-        <p>Description: </p>
-        <p>abv: </p>
+        <p>Description: {{beer.description}}</p>
+        <p>abv: {{beer.abv}}</p>
   </div>
 </template>
 
