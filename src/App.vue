@@ -39,6 +39,11 @@ export default {
           this.beers[index].isFavourite = true;
         })
 
+        eventBus.$on("unfavourite", (beer) => {
+          const index = this.beers.indexOf(beer);
+          this.beers[index].isFavourite = false;
+        })
+
     }
   }
 
